@@ -12,5 +12,9 @@ public interface MedicamentoDao {
 		Medicamento buscarPorId(int id);
 		List<Medicamento> listarMedicamentos();
 		
+		
+		
+		Medicamento buscarPorId_CONNECTION_ON(int id);
+		
 }
 

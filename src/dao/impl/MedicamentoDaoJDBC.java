@@ -70,6 +70,38 @@ public class MedicamentoDaoJDBC implements MedicamentoDao{
 			DB.closeStatement();
 			DB.closeConnection();
 		}
+	}	
+
+		public Medicamento buscarPorId_CONNECTION_ON(int id) {
+			PreparedStatement pst = null;
+			ResultSet rs = null;
+			try {
+				pst = conn.prepareStatement(
+						"SELECT * FROM medicamento "
+						+"WHERE id=?"
+						);
+				pst.setLong(1, id);
+				rs = pst.executeQuery();
+				if (rs.next()) {
+					Medicamento m = new Medicamento();
+					m.setId(rs.getLong("id"));
+					m.setNome(rs.getString("nome"));
+					m.setMarca(rs.getString("marca"));
+					m.setValor(rs.getDouble("valor"));
+					m.setGenerico(rs.getBoolean("generico"));
+					m.setRemedio(rs.getBoolean("remedio"));
+					
+					return m;
+					
+				}
+				return null;
+			
+			}catch (SQLException e) {
+				throw new DbException(e.getMessage());
+			}
+			finally {
+
+			}
 		
 		
 		

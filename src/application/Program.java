@@ -14,7 +14,9 @@ public class Program {
 		
 		RegistroDao rDao = DaoFabrica.criarRegistroDao();
 		
-		rDao.buscarPorCliente("78941352");
+		rDao.inserirRegistro("2022/08/15", 5, 2, "897419863");
+		
+//		rDao.buscarPorCliente("78941352");
 		
 //		MedicamentoDao mDao = DaoFabrica.criarMedicamentoDao();
 //		

@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.Random;
+
 
 import dao.DaoFabrica;
 import dao.MedicamentoDao;
@@ -16,7 +16,7 @@ import db.DB;
 import db.DbException;
 import entidades.Registro;
 
-public class RegistroDaoJDBC implements  RegistroDao{
+public class RegistroDaoJDBC implements RegistroDao{
 	
 	private Connection conn;
 	public RegistroDaoJDBC(Connection conn) {
@@ -28,29 +28,29 @@ public class RegistroDaoJDBC implements  RegistroDao{
 	public void inserirRegistro(String data, int qtdMedicamento, int idMedicamento, String cpf) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 		MedicamentoDao mDao = DaoFabrica.criarMedicamentoDao();
-		Long nf = Long.parseLong(Registro.gerarNf());
-	
+		String nf = Registro.gerarNf();	
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 			try {
 				conn= DB.getConnection();
-				Double valorTotal = mDao.buscarPorId(idMedicamento).getValor() * qtdMedicamento;
-
+				Double valorTotal = mDao.buscarPorId_CONNECTION_ON(idMedicamento).getValor() * qtdMedicamento;
+				String nome_medicamento = mDao.buscarPorId_CONNECTION_ON(idMedicamento).getNome();
 				//validar se tem em medicamento em estoque se nao exibir msg - FALTA 
 				
 				pst = conn.prepareStatement(
 					"insert into registro"	
 					+ "(data_registro, qtd_medicamento, valor_total, numeroNF, "
-					+ "cpf_cliente, id_medicamento)"
+					+ "cpf_cliente, id_medicamento,nome_medicamento)"
 					+ "values "
-					+ "(?,?,?,?,?,?)",
+					+ "(?,?,?,?,?,?,?)",
 					pst.RETURN_GENERATED_KEYS);
 				pst.setDate(1, new java.sql.Date(sdf.parse(data).getTime()));
 				pst.setInt(2, qtdMedicamento);
 				pst.setDouble(3, valorTotal);
-				pst.setLong(4,nf);
+				pst.setString(4,nf);
 				pst.setString(5,cpf);
-				pst.setInt(5, idMedicamento);
+				pst.setInt(6, idMedicamento);
+				pst.setString(7, nome_medicamento);
 				
 				int linhasAfetadas = pst.executeUpdate();
 				
@@ -58,7 +58,7 @@ public class RegistroDaoJDBC implements  RegistroDao{
 					rs = pst.getGeneratedKeys();
 					while(rs.next()) {
 						int id = rs.getInt(1);
-						System.out.println("ID =" + id);
+						System.out.println("Registro inserido! Número do ID = " + id);
 					}
 				}
 				
@@ -75,9 +75,6 @@ public class RegistroDaoJDBC implements  RegistroDao{
 			}
 	}
 
-	public void atualizarRegistro() {
-		// TODO Auto-generated method stub
-	}
 
 	@Override
 	public void deletarPorId(Long id) {
@@ -88,7 +85,6 @@ public class RegistroDaoJDBC implements  RegistroDao{
 	@Override
 	public Registro buscarPorId(Long id) {
 		return null;
-
 	}
 
 	@Override  // MÉTODO DE Histórico DE CONTA 
@@ -141,7 +137,7 @@ public class RegistroDaoJDBC implements  RegistroDao{
 	}
 
 	@Override
-	public List<Registro> listarPedido() {
+	public List<Registro> listarRegistros() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -151,6 +147,7 @@ public class RegistroDaoJDBC implements  RegistroDao{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 
 

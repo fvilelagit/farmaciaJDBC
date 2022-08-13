@@ -14,7 +14,7 @@ public class Registro implements Serializable{
 	private Date moment;
 	private Double valorTotal;
 	private int qtdMedicamento;
-	private Long numeroNf;
+	private String numeroNf;
 
 	private Cliente cliente;
 	private Medicamento medicamento;
@@ -32,7 +32,7 @@ public class Registro implements Serializable{
 	}
 
 
-	public Registro(Long id,Double valorTotal, Medicamento medicamento, Cliente cliente, Date moment, Long numeroNf) {
+	public Registro(Long id,Double valorTotal, Medicamento medicamento, Cliente cliente, Date moment, String numeroNf) {
 		super();
 		this.id = id;
 		this.cliente = cliente;
@@ -52,11 +52,11 @@ public class Registro implements Serializable{
 		this.qtdMedicamento = qtdMedicamento;
 	}
 
-	public Long getNumeroNf() {
+	public String getNumeroNf() {
 		return numeroNf;
 	}
 
-	public void setNumeroNf(Long numeroNf) {
+	public void setNumeroNf(String numeroNf) {
 		this.numeroNf = numeroNf;
 	}
 
