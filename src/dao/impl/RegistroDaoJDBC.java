@@ -33,6 +33,7 @@ public class RegistroDaoJDBC implements RegistroDao{
 		ResultSet rs = null;
 			try {
 				conn= DB.getConnection();
+				
 				Double valorTotal = mDao.buscarPorId_CONNECTION_ON(idMedicamento).getValor() * qtdMedicamento;
 				String nome_medicamento = mDao.buscarPorId_CONNECTION_ON(idMedicamento).getNome();
 				//validar se tem em medicamento em estoque se nao exibir msg - FALTA 

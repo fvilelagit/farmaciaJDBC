@@ -2,13 +2,19 @@ package dao;
 
 import java.util.List;
 
+
 import entidades.Cliente;
 
 public interface ClienteDao {
 
-	void inserirCliente(Cliente  m);
-	void atualizarCliente(Cliente m);
+	void inserirCliente(String nome, String cpf, String telefone, String data);
+	
+	void atualizarCliente();
 	void deletarPorId(Long id);
 	Cliente buscarPorId(Long id);
-	List<Cliente> listarClientes();
+
+	void exibirClientes();
+	
+	
+
 }

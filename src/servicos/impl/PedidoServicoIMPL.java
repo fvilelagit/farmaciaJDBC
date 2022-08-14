@@ -12,12 +12,14 @@ public class PedidoServicoIMPL implements PedidoServico {
 		String n = "01234567890123456789012345678901234567890147";
 		List<String> numero = Arrays.asList(n.split(""));
 		Collections.shuffle(numero);
-		StringBuilder t = new StringBuilder(n.length());
+		StringBuilder sb = new StringBuilder(n.length());
 		for (String k : numero) {
-			t.append(k);
+			sb.append(k);
 		}
-		return t.toString();
+		return sb.toString();
 	}
+	
+	//CalculoGenérico
 	
 	
 	
