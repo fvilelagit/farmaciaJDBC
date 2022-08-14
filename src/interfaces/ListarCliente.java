@@ -1,20 +1,24 @@
 package interfaces;
 
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JScrollPane;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
 import java.awt.Font;
-import javax.swing.JButton;
-import javax.swing.JTextField;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
 public class ListarCliente extends JFrame {
 
@@ -29,6 +33,14 @@ public class ListarCliente extends JFrame {
 	private JTextField txtCPF;
 	private JTextField txtTelefone;
 	private JTextField txtNasc;
+	private Long id;
+	private Long pesq;
+	private String nome;
+	private String cpf;
+	private String telefone;
+	private Date dNasc;
+	private Connection conn;
+	private	DateFormat df = new SimpleDateFormat();
 
 	/**
 	 * Launch the application.
@@ -71,8 +83,18 @@ public class ListarCliente extends JFrame {
 			new String[] {
 				"ID", "Nome", "CPF", "Telefone", "Data Nascimento"
 			}
-		));
-		table.getColumnModel().getColumn(4).setPreferredWidth(97);
+		) {
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+			Class[] columnTypes = new Class[] {
+				Integer.class, String.class, String.class, String.class, String.class
+			};
+			public Class getColumnClass(int columnIndex) {
+				return columnTypes[columnIndex];
+			}
+		});
 		scrollPane.setViewportView(table);
 		
 		JLabel lblNewLabel = new JLabel("Listar Clientes");
@@ -84,8 +106,22 @@ public class ListarCliente extends JFrame {
 		JButton btnPesquisar = new JButton("Pesquisar");
 		btnPesquisar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DefaultTableModel model = (DefaultTableModel)table.getModel(); 
-				model.addRow(new String[] {"0", "Rafael", "123.456.789-00", "11 1111-1111", "11/11/1111"});
+				DefaultTableModel model = (DefaultTableModel)table.getModel();
+				entidades.Cliente cli = new entidades.Cliente();
+				dao.impl.ClienteDaoJDBC c = new dao.impl.ClienteDaoJDBC(conn);
+				
+				for(int i = 1; i < 1000; i++) {
+					pesq = (long) i;
+					cli = c.buscarPorId(pesq);
+					if(cli.getNome() != null) {
+						id = cli.getId();
+						nome = cli.getNome();
+						cpf = cli.getCpf();
+						telefone = cli.getTelefone();
+						dNasc = cli.getData_nascimento();
+						model.addRow(new String[] {Long.toString(id), nome, cpf, telefone, df.format(dNasc)});
+					}
+				}
 			}
 		});
 		btnPesquisar.setBounds(184, 299, 89, 23);
