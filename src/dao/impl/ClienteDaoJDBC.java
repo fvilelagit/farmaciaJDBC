@@ -60,7 +60,7 @@ public class ClienteDaoJDBC implements ClienteDao {
 			+ cpf +", "
 			+ telefone +", "
 			+ data +"  ;"
-			+ " foram incluídos com sucesso!"			
+			+ " foram incluï¿½dos com sucesso!"			
 			);
 			
 			System.out.println(linhasAfetadas + " linhas afetadas.");
@@ -129,5 +129,5 @@ public class ClienteDaoJDBC implements ClienteDao {
 
 		
 	}
-
+	
 }

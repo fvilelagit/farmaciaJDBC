@@ -1,17 +1,27 @@
 package application;
 
+import javax.swing.JOptionPane;
+
 import dao.ClienteDao;
 import dao.DaoFabrica;
-import dao.RepositorioDao;
+import db.DB;
+import interfaces.MenuPrincipal;
 
 public class Program {
 
 	public static void main(String [] args) {
+		try {
+			DB.getConnection();
+			MenuPrincipal tela = new MenuPrincipal();
+			tela.setVisible(true);
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Erro" + e);
+		}
 		
 //		RepositorioDao repDao = DaoFabrica.criarRepositorioDao();
 		ClienteDao cDao = DaoFabrica.criarClienteDao();
 		
-//		cDao.inserirCliente("Luquinhas Porradão", "123456789", "7188787877", "04/04/1994");
+//		cDao.inserirCliente("Luquinhas Porradï¿½o", "123456789", "7188787877", "04/04/1994");
 		
 		cDao.exibirClientes();
 		
