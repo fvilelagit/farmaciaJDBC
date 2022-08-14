@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import dao.ClienteDao;
@@ -18,6 +19,7 @@ import entidades.Medicamento;
 public class ClienteDaoJDBC implements ClienteDao {
 
 	private Connection conn;
+	SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
 	
 	public ClienteDaoJDBC(Connection conn){
 		this.conn = conn;
@@ -61,7 +63,7 @@ public class ClienteDaoJDBC implements ClienteDao {
 			+ cpf +" ,: "
 			+ telefone +": , "
 			+ data +"  ;"
-			+ " foram incluídos com sucesso!"			
+			+ " foram incluï¿½dos com sucesso!"			
 			);
 			
 			System.out.println(linhasAfetadas + " linhas afetadas.");
@@ -151,7 +153,38 @@ public class ClienteDaoJDBC implements ClienteDao {
 
 	@Override
 	public Cliente buscarPorId(Long id) {
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		Cliente cli = new Cliente();
+		try {
+			conn = DB.getConnection();
+			pst = conn.prepareStatement(
+					"SELECT * FROM cliente "		
+					+ "WHERE id = ?;");
+			pst.setLong(1, id);
+			System.out.println(pst);
+			rs = pst.executeQuery();
+			rs.next();
+			
+			System.out.println("Id:" + rs.getLong("id") 
+			+ " Nome: " + rs.getString("nome")
+			+ " CPF: " + rs.getString("cpf")
+			+ " Telefone:  " + rs.getInt("telefone")
+			+ " Data Nascimento: " + rs.getDate("data_nasc"));
+
+			cli.setId(rs.getLong("id"));
+			cli.setNome(rs.getString("nome"));
+			cli.setCpf(rs.getString("cpf"));
+			cli.setTelefone(rs.getString("telefone"));
+			cli.setData_nascimento(rs.getDate("data_nasc"));
+			
+			System.out.println(cli.getId());
+			
+		} catch(Exception e) {
+			System.out.println("erro: " + e);
+		}
 		
+<<<<<<< HEAD
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		
 		PreparedStatement pst = null;
@@ -184,13 +217,16 @@ public class ClienteDaoJDBC implements ClienteDao {
 			DB.closeStatement();
 
 		}
+=======
+		return cli;
+
+>>>>>>> 13095dca7fe303156c1c7c7b496926582ce39f2d
 	}
 
 
 	public void exibirClientes() {
 		Statement st = null;
 		ResultSet rs = null;
-		
 		
 		try {
 			conn = DB.getConnection();
@@ -217,5 +253,5 @@ public class ClienteDaoJDBC implements ClienteDao {
 
 			}
 	}
-
+	
 }

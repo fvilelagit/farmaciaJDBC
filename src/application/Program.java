@@ -1,13 +1,21 @@
 package application;
 
+import javax.swing.JOptionPane;
+
 import dao.ClienteDao;
 import dao.DaoFabrica;
+<<<<<<< HEAD
 import dao.MedicamentoDao;
 import dao.RepositorioDao;
+=======
+import db.DB;
+import interfaces.MenuPrincipal;
+>>>>>>> 13095dca7fe303156c1c7c7b496926582ce39f2d
 
 public class Program {
 
 	public static void main(String [] args) {
+<<<<<<< HEAD
 //		RegistroDao rDao = DaoFabrica.criarRegistroDao();
 //		RepositorioDao repDao = DaoFabrica.criarRepositorioDao();	
 //		MedicamentoDao mDao = DaoFabrica.criarMedicamentoDao();	
@@ -20,6 +28,20 @@ public class Program {
 		
 //		
 //		cDao.inserirCliente("Luquinhas Porradão", "123456789", "7188787877", "04/04/1994");
+=======
+		try {
+			DB.getConnection();
+			MenuPrincipal tela = new MenuPrincipal();
+			tela.setVisible(true);
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Erro" + e);
+		}
+		
+//		RepositorioDao repDao = DaoFabrica.criarRepositorioDao();
+		ClienteDao cDao = DaoFabrica.criarClienteDao();
+		
+//		cDao.inserirCliente("Luquinhas Porradï¿½o", "123456789", "7188787877", "04/04/1994");
+>>>>>>> 13095dca7fe303156c1c7c7b496926582ce39f2d
 		
 //		cDao.atualizarCliente(3, "Marquito da galera", "0235681585", "71717458256","05/05/1995");
 		
