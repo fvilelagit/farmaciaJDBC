@@ -83,10 +83,6 @@ public class RegistroDaoJDBC implements RegistroDao{
 		
 	}
 
-	@Override
-	public Registro buscarPorId(Long id) {
-		return null;
-	}
 
 	@Override  // MÉTODO DE Histórico DE CONTA 
 	 public void buscarPorCliente(String cpf) { 

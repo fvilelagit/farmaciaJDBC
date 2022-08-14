@@ -8,12 +8,15 @@ import entidades.Cliente;
 public interface ClienteDao {
 
 	void inserirCliente(String nome, String cpf, String telefone, String data);
-	
-	void atualizarCliente();
-	void deletarPorId(Long id);
-	Cliente buscarPorId(Long id);
-
 	void exibirClientes();
+	Cliente buscarPorId(Long id);
+	
+	
+	void atualizarCliente(int id, String nome, String cpf, String telefone, String data);
+	void deletarPorId(int id);
+	
+
+
 	
 	
 

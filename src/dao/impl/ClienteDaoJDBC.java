@@ -13,6 +13,7 @@ import dao.ClienteDao;
 import db.DB;
 import db.DbException;
 import entidades.Cliente;
+import entidades.Medicamento;
 
 public class ClienteDaoJDBC implements ClienteDao {
 
@@ -56,9 +57,9 @@ public class ClienteDaoJDBC implements ClienteDao {
 			}
 			
 			System.out.println("O dados do cliente: "
-			+ nome +", "
-			+ cpf +", "
-			+ telefone +", "
+			+ nome +": , "
+			+ cpf +" ,: "
+			+ telefone +": , "
 			+ data +"  ;"
 			+ " foram incluídos com sucesso!"			
 			);
@@ -74,26 +75,115 @@ public class ClienteDaoJDBC implements ClienteDao {
 		finally {
 			DB.closeResultSet();
 			DB.closeStatement();
-			DB.closeConnection();
+
 		}
-		
+	
 	}
+	
+	
+	
 	@Override
-	public void atualizarCliente() {
-		// TODO Auto-generated method stub
+	public void atualizarCliente(int id, String nome, String cpf, String telefone, String data) {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		PreparedStatement pst = null;
+
 		
+		try {
+			conn= DB.getConnection();
+			
+			pst = conn.prepareStatement(
+				"update cliente "	
+				+ "SET nome= ?, cpf= ?, telefone= ?, data_nasc= ? "
+				+ "WHERE id= ?");
+	
+			pst.setString(1, nome);
+			pst.setString(2, cpf);
+			pst.setString(3, telefone);
+			pst.setDate(4, new java.sql.Date(sdf.parse(data).getTime()));
+			pst.setInt(5, id);
+			
+			pst.executeUpdate();
+			
+			System.out.println("Update executado! ");	
+			
+		}catch(SQLException e) {
+			throw new DbException(e.getMessage());
+		}catch (ParseException e) {
+			e.getMessage();
+		}
+		finally {
+			DB.closeResultSet();
+			DB.closeStatement();
+
+		}
 	}
 
 	@Override
-	public void deletarPorId(Long id) {
-		// TODO Auto-generated method stub
-		
+	public void deletarPorId(int id) {
+		PreparedStatement pst = null;
+
+		try {
+			conn= DB.getConnection();
+			
+			pst = conn.prepareStatement(
+				"delete from cliente "	
+				+ "WHERE id= ?");
+	
+			pst.setDouble(1,id);
+
+
+			
+			pst.executeUpdate();
+			
+			System.out.printf("Cliente de id %d deletado com sucesso! ", id);	
+			System.out.println();
+			
+		}
+		catch(SQLException e) {
+			throw new DbException(e.getMessage());
+		}
+		finally {
+			DB.closeResultSet();
+			DB.closeStatement();
+		}
 	}
+
 
 	@Override
 	public Cliente buscarPorId(Long id) {
 		
-		return null;
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		try {
+			pst = conn.prepareStatement(
+					"SELECT * FROM cliente "
+					+"WHERE id=?"
+					);
+			pst.setLong(1, id);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				Cliente c = new Cliente();
+				c.setId(rs.getLong("id"));
+				c.setNome(rs.getString("nome"));
+				c.setCpf(rs.getString("cpf"));
+				c.setTelefone(rs.getString("telefone"));
+				c.setData_nascimento(rs.getDate("data_nasc"));
+				
+				return c;
+				
+			}
+			return null;
+		
+		}catch (SQLException e) {
+			throw new DbException(e.getMessage());
+		}
+		finally {
+			DB.closeResultSet();
+			DB.closeStatement();
+
+		}
 	}
 
 
@@ -124,10 +214,8 @@ public class ClienteDaoJDBC implements ClienteDao {
 			} finally {
 				DB.closeResultSet();
 				DB.closeStatement();
-				DB.closeConnection();
-			}
 
-		
+			}
 	}
 
 }

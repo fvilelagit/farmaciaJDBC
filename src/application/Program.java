@@ -2,20 +2,28 @@ package application;
 
 import dao.ClienteDao;
 import dao.DaoFabrica;
+import dao.MedicamentoDao;
 import dao.RepositorioDao;
 
 public class Program {
 
 	public static void main(String [] args) {
-		
-//		RepositorioDao repDao = DaoFabrica.criarRepositorioDao();
+//		RegistroDao rDao = DaoFabrica.criarRegistroDao();
+//		RepositorioDao repDao = DaoFabrica.criarRepositorioDao();	
+//		MedicamentoDao mDao = DaoFabrica.criarMedicamentoDao();	
+//		
+//		mDao.deletarPorId(8);
+
 		ClienteDao cDao = DaoFabrica.criarClienteDao();
 		
+		cDao.deletarPorId(3);
+		
+//		
 //		cDao.inserirCliente("Luquinhas Porradão", "123456789", "7188787877", "04/04/1994");
 		
-		cDao.exibirClientes();
+//		cDao.atualizarCliente(3, "Marquito da galera", "0235681585", "71717458256","05/05/1995");
 		
-//		RegistroDao rDao = DaoFabrica.criarRegistroDao();	
+	
 //		repDao.adicionarMedicamentoEstoque(10, 2);
 			
 		
@@ -23,7 +31,7 @@ public class Program {
 		
 //		rDao.buscarPorCliente("78941352");
 //		
-//		MedicamentoDao mDao = DaoFabrica.criarMedicamentoDao();
+
 //		
 //		System.out.println(mDao.buscarPorId(2).toString());
 //		

@@ -9,12 +9,13 @@ public interface RegistroDao {
 	void inserirRegistro(String date, int qtdMedicamento, int idMedicamento,
 			String cpf);
 
+	void buscarPorCliente(String cpf);
+	
 	
 	void deletarPorId(Long id);
 	
-	
-	Registro buscarPorId(Long id);
-	void buscarPorCliente(String cpf);
+
+
 	
 	
 	List<Registro> buscarPorMedicamento(Long id);
