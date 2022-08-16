@@ -1,12 +1,16 @@
 package dao;
 
-import java.util.Date;
+
 
 public interface LogMedicamentoDao {
 
-	void inserirLogPositivo(int quantidade, int id_medicamento);
-	void inserirLogNegativo(int quantidade, int id_medicamento);
-	void exibirEstoqueTotal();
 	
+	void inserirLogPositivo(int quantidade, int id_medicamento, String data);
+	void exibirEstoqueTotal();
+	void validarRetiradaEstoque();
+	
+	
+	void validarRetiradaEstoque(int medicamento_id);
+	void inserirLogNegativo(int quantidade, int id_medicamento);
 	
 }

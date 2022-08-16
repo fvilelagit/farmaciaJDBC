@@ -197,5 +197,30 @@ public class MedicamentoDaoJDBC implements MedicamentoDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public Medicamento buscarPorNome(String nome) {
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		Medicamento m = new Medicamento();
+		try {
+			pst = conn.prepareStatement(
+					"SELECT * FROM medicamento "
+					+"WHERE nome like ?"
+					);
+			pst.setString(1, "%"+nome+"%");
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				m.setId(rs.getLong("id"));
+				m.setNome(rs.getString("nome"));
+				m.setMarca(rs.getString("marca"));
+				m.setValor(rs.getDouble("valor"));
+				m.setRemedio(rs.getBoolean("remedio"));
+				m.setGenerico(rs.getBoolean("generico"));
+			}
+		} catch (Exception e){
+			System.out.println("Erro: " + e);
+		}
+		return m;
+	}
 
 }

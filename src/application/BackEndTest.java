@@ -81,18 +81,11 @@ public class BackEndTest {
 //
 //		} while (continua == true);
 
-		
-		LogMedicamentoDao lmDao= DaoFabrica.criarLogMedicamentoDao();
 		PedidoDao pDao = DaoFabrica.criarPedidoDao();
 		
-		//lmDao.inserirLogPositivo(50, 2);
-		pDao.inserirPedido(1,2,"123456789","Credito" );
-		
-//		lmDao.inserirLogPositivo(20, 4);
-//		
-//		lmDao.exibirEstoqueTotal();
-		
-		
+		pDao.inserirPedido("01/04/2000",10,2,"123456789","Credito" );
+	
+	
 	
 	}
 

@@ -1,4 +1,9 @@
-//package application;
+package application;
+
+import dao.DaoFabrica;
+import dao.LogMedicamentoDao;
+import interfaces.TelaEntrada;
+
 //
 //import javax.swing.JOptionPane;
 //
@@ -12,10 +17,17 @@
 //import interfaces.MenuPrincipal;
 //>>>>>>> 13095dca7fe303156c1c7c7b496926582ce39f2d
 //
-//public class Program {
-//
-//	public static void main(String [] args) {
+public class Program {
+
+	public static void main(String [] args) {
 //<<<<<<< HEAD
+			LogMedicamentoDao lm = DaoFabrica.criarLogMedicamentoDao();
+//			lm.inserirLogPositivo(50, 7, "15/08/2022");
+//			lm.inserirLogPositivo(50, 5, "16/08/2022");
+			lm.exibirEstoqueTotal();
+			TelaEntrada tela = new TelaEntrada();
+			tela.setVisible(true);
+			
 ////		RegistroDao rDao = DaoFabrica.criarRegistroDao();
 ////		RepositorioDao repDao = DaoFabrica.criarRepositorioDao();	
 ////		MedicamentoDao mDao = DaoFabrica.criarMedicamentoDao();	
@@ -27,7 +39,7 @@
 //		cDao.deletarPorId(3);
 //		
 ////		
-////		cDao.inserirCliente("Luquinhas Porradão", "123456789", "7188787877", "04/04/1994");
+////		cDao.inserirCliente("Luquinhas Porradï¿½o", "123456789", "7188787877", "04/04/1994");
 //=======
 //		try {
 //			DB.getConnection();
@@ -62,6 +74,6 @@
 ////		
 ////		System.out.println(d);
 ////		
-//	}
-//	
-//}
+	}
+	
+}

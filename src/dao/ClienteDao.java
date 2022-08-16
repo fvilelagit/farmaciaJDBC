@@ -5,7 +5,6 @@ import java.util.List;
 
 import entidades.Cliente;
 
-
 public interface ClienteDao {
 
 	void inserirCliente(String nome, String cpf, String telefone, String data);
