@@ -1,6 +1,8 @@
 package entidades;
 
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +14,7 @@ public class Pedido implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Long id;
+	private int id;
 	private Date moment; //date.now()
 	private int qtdMedicamento;
 	private Double valorTotal;
@@ -28,9 +30,13 @@ public class Pedido implements Serializable{
 	public Pedido() {
 		super();
 	}
+	
+	public Pedido(int id) {
+		this.id = id;
+	}
 
 
-	public Pedido(Long id, Date moment, int qtdMedicamento, Double valorTotal, boolean pago, 
+	public Pedido(int id, Date moment, int qtdMedicamento, Double valorTotal, boolean pago, 
 			 Cliente cliente, List<Medicamento> medicamento) {
 		super();
 		this.id = id;
@@ -43,7 +49,7 @@ public class Pedido implements Serializable{
 	}
 	
 	
-	public Pedido(Long id, Date moment, int qtdMedicamento, Double valorTotal, boolean pago, Pagamento tipoPagamento,
+	public Pedido(int id, Date moment, int qtdMedicamento, Double valorTotal, boolean pago, Pagamento tipoPagamento,
 			Long numeroNf, Cliente cliente, List<Medicamento> medicamento) {
 		super();
 		this.id = id;
@@ -58,10 +64,10 @@ public class Pedido implements Serializable{
 	}
 	
 	
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public Date getMoment() {
@@ -119,6 +125,17 @@ public class Pedido implements Serializable{
 		}
 	}
 
+	public static final String gerarNf() {
+	    String n = "01234567890123456789012345678901234567890147";
+		List<String> numero = Arrays.asList(n.split(""));
+	    Collections.shuffle(numero);
+	    StringBuilder t = new StringBuilder(n.length());
+	    for (String k : numero) {
+	        t.append(k);
+	    }
+	    return t.toString();
+	}
+	
 
 	@Override
 	public String toString() {

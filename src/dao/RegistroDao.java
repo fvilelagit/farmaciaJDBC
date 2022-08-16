@@ -14,9 +14,6 @@ public interface RegistroDao {
 	
 	void deletarPorId(Long id);
 	
-
-
-	
 	
 	List<Registro> buscarPorMedicamento(Long id);
 	List<Registro> listarRegistros();

@@ -1,0 +1,176 @@
+
+*****************************************************
+Summary
+-------
+Generated at: 2022-08-15T21:39:47-03:00
+
+Notes: 3
+Binaries: 0
+Archives: 0
+Standards: 147
+
+Apache Licensed: 147
+Generated Documents: 0
+
+JavaDocs are generated, thus a license header is optional.
+Generated files do not require license headers.
+
+0 Unknown Licenses
+
+*****************************************************
+  Files with Apache License headers will be marked AL
+  Binary files (which do not require any license headers) will be marked B
+  Compressed archives will be marked A
+  Notices, licenses etc. will be marked N
+  AL    .github/dependabot.yml
+  AL    .github/pull_request_template.md
+  AL    .github/workflows/maven.yml
+  N     DEPENDENCIES
+  AL    Jenkinsfile
+  N     LICENSE
+  N     NOTICE
+  AL    pom.xml
+  AL    README.md
+  AL    src/it/manifest-content/pom.xml
+  AL    src/it/manifest-content/src/main/java/myproject/HelloWorld.java
+  AL    src/it/manifest-content/verify.bsh
+  AL    src/it/mjar-139/pom.xml
+  AL    src/it/mjar-139/src/main/java/Foo.java
+  AL    src/it/mjar-139/verify.bsh
+  AL    src/it/MJAR-162/pom.xml
+  AL    src/it/MJAR-162/src/main/java/Foo.java
+  AL    src/it/MJAR-162/verify.bsh
+  AL    src/it/MJAR-183/invoker.properties
+  AL    src/it/MJAR-183/pom.xml
+  AL    src/it/MJAR-183/src/main/java/A.java
+  AL    src/it/MJAR-183/verify.bsh
+  AL    src/it/MJAR-198/invoker.properties
+  AL    src/it/MJAR-198/pom.xml
+  AL    src/it/MJAR-198/src/main/java/A.java
+  AL    src/it/MJAR-199/invoker.properties
+  AL    src/it/MJAR-199/pom.xml
+  AL    src/it/MJAR-199/src/test/java/A.java
+  AL    src/it/MJAR-199/verify.bsh
+  AL    src/it/MJAR-199-change-classifier/invoker.properties
+  AL    src/it/MJAR-199-change-classifier/pom.xml
+  AL    src/it/MJAR-199-change-classifier/src/test/java/A.java
+  AL    src/it/MJAR-199-change-classifier/verify.bsh
+  AL    src/it/MJAR-210/invoker.properties
+  AL    src/it/MJAR-210/pom.xml
+  AL    src/it/MJAR-228/pom.xml
+  AL    src/it/MJAR-228/src/main/java/myproject/HelloWorld.java
+  AL    src/it/MJAR-228/verify.bsh
+  AL    src/it/MJAR-238-modular-jar-main-class/invoker.properties
+  AL    src/it/MJAR-238-modular-jar-main-class/pom.xml
+  AL    src/it/MJAR-238-modular-jar-main-class/src/main/java/module-info.java
+  AL    src/it/MJAR-238-modular-jar-main-class/src/main/java/myproject/HelloWorld.java
+  AL    src/it/MJAR-238-modular-jar-main-class/verify.bsh
+  AL    src/it/MJAR-260-invalid-automatic-module-name/invoker.properties
+  AL    src/it/MJAR-260-invalid-automatic-module-name/pom.xml
+  AL    src/it/MJAR-260-invalid-automatic-module-name/src/main/java/myproject/HelloWorld.java
+  AL    src/it/MJAR-260-invalid-automatic-module-name/verify.bsh
+  AL    src/it/MJAR-260-valid-automatic-module-name/pom.xml
+  AL    src/it/MJAR-260-valid-automatic-module-name/src/main/java/myproject/HelloWorld.java
+  AL    src/it/MJAR-260-valid-automatic-module-name/verify.bsh
+  AL    src/it/MJAR-30-excludes/pom.xml
+  AL    src/it/MJAR-30-excludes/src/main/java/foo/project003/App.java
+  AL    src/it/MJAR-30-excludes/src/main/resources/default-configuration.properties
+  AL    src/it/MJAR-30-excludes/src/main/resources/excluded-file.txt
+  AL    src/it/MJAR-30-excludes/src/test/java/foo/project003/AppTest.java
+  AL    src/it/MJAR-30-excludes/src/test/resources/excluded-file.txt
+  AL    src/it/MJAR-30-excludes/src/test/resources/test-default-configuration.properties
+  AL    src/it/MJAR-30-excludes/verify.bsh
+  AL    src/it/MJAR-30-fullcontent/pom.xml
+  AL    src/it/MJAR-30-fullcontent/src/main/java/foo/project001/App.java
+  AL    src/it/MJAR-30-fullcontent/src/main/resources/default-configuration.properties
+  AL    src/it/MJAR-30-fullcontent/src/test/java/foo/project001/AppTest.java
+  AL    src/it/MJAR-30-fullcontent/src/test/resources/test-default-configuration.properties
+  AL    src/it/MJAR-30-fullcontent/verify.bsh
+  AL    src/it/MJAR-30-include/pom.xml
+  AL    src/it/MJAR-30-include/src/main/java/service/impl/TestImplementation.java
+  AL    src/it/MJAR-30-include/src/main/java/service/TestInterface.java
+  AL    src/it/MJAR-30-include/src/main/java/TestCompile1.java
+  AL    src/it/MJAR-30-include/src/main/resources/notIncluded.xml
+  AL    src/it/MJAR-30-include/verify.bsh
+  AL    src/it/MJAR-60/pom.xml
+  AL    src/it/MJAR-60/src/main/java/myproject/HelloWorld.java
+  AL    src/it/MJAR-60/verify.bsh
+  AL    src/it/MJAR-70-no-recreation/invoker.properties
+  AL    src/it/MJAR-70-no-recreation/pom.xml
+  AL    src/it/MJAR-70-no-recreation/src/main/java/myproject/HelloWorld.java
+  AL    src/it/MJAR-70-no-recreation/verify.bsh
+  AL    src/it/MJAR-70-recreation/invoker.properties
+  AL    src/it/MJAR-70-recreation/pom.xml
+  AL    src/it/MJAR-70-recreation/src/main/java/myproject/HelloWorld.java
+  AL    src/it/MJAR-70-recreation/verify.bsh
+  AL    src/it/mjar-71-01/pom.xml
+  AL    src/it/mjar-71-01/src/main/java/foo/project003/App.java
+  AL    src/it/mjar-71-01/verify.bsh
+  AL    src/it/mjar-71-02/pom.xml
+  AL    src/it/mjar-71-02/src/main/java/foo/project003/App.java
+  AL    src/it/mjar-71-02/verify.bsh
+  AL    src/it/MJAR-75/client/pom.xml
+  AL    src/it/MJAR-75/client/src/main/java/org/apache/maven/its/it0126/MyClient.java
+  AL    src/it/MJAR-75/invoker.properties
+  AL    src/it/MJAR-75/model/pom.xml
+  AL    src/it/MJAR-75/model/src/test/java/org/apache/maven/its/it0126/Component.java
+  AL    src/it/MJAR-75/pom.xml
+  AL    src/it/MJAR-80-exclude/pom.xml
+  AL    src/it/MJAR-80-exclude/src/main/java/foo/project003/App.java
+  AL    src/it/MJAR-80-exclude/src/main/resources/default-configuration.properties
+  AL    src/it/MJAR-80-exclude/src/main/resources/excluded-file.txt
+  AL    src/it/MJAR-80-exclude/src/test/java/foo/project003/AppIntegrationTest.java
+  AL    src/it/MJAR-80-exclude/src/test/java/foo/project003/AppTest.java
+  AL    src/it/MJAR-80-exclude/src/test/resources/excluded-file.txt
+  AL    src/it/MJAR-80-exclude/src/test/resources/test-default-configuration.properties
+  AL    src/it/MJAR-80-exclude/verify.bsh
+  AL    src/it/MJAR-80-fullcontent/pom.xml
+  AL    src/it/MJAR-80-fullcontent/src/main/java/foo/project003/App.java
+  AL    src/it/MJAR-80-fullcontent/src/main/resources/default-configuration.properties
+  AL    src/it/MJAR-80-fullcontent/src/main/resources/excluded-file.txt
+  AL    src/it/MJAR-80-fullcontent/src/test/java/foo/project003/AppIntegrationTest.java
+  AL    src/it/MJAR-80-fullcontent/src/test/java/foo/project003/AppTest.java
+  AL    src/it/MJAR-80-fullcontent/src/test/resources/test-default-configuration.properties
+  AL    src/it/MJAR-80-fullcontent/verify.bsh
+  AL    src/it/MJAR-80-include/pom.xml
+  AL    src/it/MJAR-80-include/src/main/java/foo/project003/App.java
+  AL    src/it/MJAR-80-include/src/main/resources/default-configuration.properties
+  AL    src/it/MJAR-80-include/src/main/resources/excluded-file.txt
+  AL    src/it/MJAR-80-include/src/test/java/foo/project003/AppIntegrationTest.java
+  AL    src/it/MJAR-80-include/src/test/java/foo/project003/AppTest.java
+  AL    src/it/MJAR-80-include/src/test/resources/test-default-configuration.properties
+  AL    src/it/MJAR-80-include/verify.bsh
+  AL    src/it/MJAR-82/pom.xml
+  AL    src/it/MJAR-82/src/main/java/myproject/HelloWorld.java
+  AL    src/it/MJAR-82/verify.bsh
+  AL    src/it/mjar-90/pom.xml
+  AL    src/it/mjar-90/src/main/java/Foo.java
+  AL    src/it/mjar-90/src/test/java/FooTest.java
+  AL    src/it/mjar-90/verify.bsh
+  AL    src/it/project-004/pom.xml
+  AL    src/it/project-004/src/main/java/service/impl/TestImplementation.java
+  AL    src/it/project-004/src/main/java/service/TestInterface.java
+  AL    src/it/project-004/src/main/java/TestCompile1.java
+  AL    src/it/project-004/src/main/resources/notIncluded.xml
+  AL    src/it/project-004/verify.bsh
+  AL    src/it/settings.xml
+  AL    src/main/filtered-resources/META-INF/plexus/components.xml
+  AL    src/main/java/org/apache/maven/plugins/jar/AbstractJarMojo.java
+  AL    src/main/java/org/apache/maven/plugins/jar/JarMojo.java
+  AL    src/main/java/org/apache/maven/plugins/jar/TestJarMojo.java
+  AL    src/site/apt/examples/attached-jar.apt.vm
+  AL    src/site/apt/examples/create-test-jar.apt.vm
+  AL    src/site/apt/examples/include-exclude.apt.vm
+  AL    src/site/apt/examples/manifest-customization.apt.vm
+  AL    src/site/apt/index.apt.vm
+  AL    src/site/apt/usage.apt.vm
+  AL    src/site/fml/faq.fml
+  AL    src/site/resources/.htaccess
+  AL    src/site/resources/download.cgi
+  AL    src/site/site.xml
+  AL    src/site/xdoc/download.xml.vm
+  AL    src/test/java/org/apache/maven/plugins/jar/JarMojoTest.java
+  AL    src/test/resources/unit/jar-basic-test/pom.xml
+  AL    src/test/resources/unit/jar-basic-test/src/main/java/TestCompile1.java
+ 
+*****************************************************

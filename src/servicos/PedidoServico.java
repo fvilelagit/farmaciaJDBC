@@ -2,5 +2,10 @@ package servicos;
 
 public interface PedidoServico {
 
-	String gerarNf();
+	static String gerarNf() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	double descontoGenerico(Boolean generico, double valor);
 }

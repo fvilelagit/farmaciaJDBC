@@ -118,7 +118,7 @@ public class MedicamentoDaoJDBC implements MedicamentoDao {
 			
 			pst.executeUpdate();
 			
-			System.out.printf("Medicamento de %d deletado com sucesso! ", id);	
+			System.out.printf("Medicamento de id %d deletado com sucesso! ", id);	
 			System.out.println();
 			
 		}

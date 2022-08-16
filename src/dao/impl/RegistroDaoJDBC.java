@@ -72,7 +72,6 @@ public class RegistroDaoJDBC implements RegistroDao{
 			finally {
 				DB.closeResultSet();
 				DB.closeStatement();
-				DB.closeConnection();
 			}
 	}
 

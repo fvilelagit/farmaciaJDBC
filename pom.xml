@@ -11,7 +11,7 @@
 	<groupId>com.numberone</groupId>
 	<artifactId>FarmaciaJDBC</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>farmacia</name>
+	<name>farmaciJDBC</name>
 	<description>Aplicacao de cadastro de clientes e pedidos </description>
 	<properties>
 		<java.version>15</java.version>

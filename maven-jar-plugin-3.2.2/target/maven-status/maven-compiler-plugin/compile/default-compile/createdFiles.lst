@@ -1,0 +1,4 @@
+org\apache\maven\plugins\jar\JarMojo.class
+org\apache\maven\plugins\jar\TestJarMojo.class
+HelpMojo.class
+org\apache\maven\plugins\jar\AbstractJarMojo.class

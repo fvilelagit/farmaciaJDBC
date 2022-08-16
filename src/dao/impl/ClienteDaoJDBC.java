@@ -180,47 +180,13 @@ public class ClienteDaoJDBC implements ClienteDao {
 			
 			System.out.println(cli.getId());
 			
+			
+			return cli;
+			
 		} catch(Exception e) {
 			System.out.println("erro: " + e);
 		}
-		
-<<<<<<< HEAD
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		
-		PreparedStatement pst = null;
-		ResultSet rs = null;
-		try {
-			pst = conn.prepareStatement(
-					"SELECT * FROM cliente "
-					+"WHERE id=?"
-					);
-			pst.setLong(1, id);
-			rs = pst.executeQuery();
-			if (rs.next()) {
-				Cliente c = new Cliente();
-				c.setId(rs.getLong("id"));
-				c.setNome(rs.getString("nome"));
-				c.setCpf(rs.getString("cpf"));
-				c.setTelefone(rs.getString("telefone"));
-				c.setData_nascimento(rs.getDate("data_nasc"));
-				
-				return c;
-				
-			}
-			return null;
-		
-		}catch (SQLException e) {
-			throw new DbException(e.getMessage());
-		}
-		finally {
-			DB.closeResultSet();
-			DB.closeStatement();
-
-		}
-=======
 		return cli;
-
->>>>>>> 13095dca7fe303156c1c7c7b496926582ce39f2d
 	}
 
 

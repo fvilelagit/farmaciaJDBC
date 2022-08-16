@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="6.18">
+<file name="C:\Users\rhcp_\Desktop\GAMA IBM\Workspaces\FarmaciaJDBC\maven-jar-plugin-3.2.2\src\main\java\org\apache\maven\plugins\jar\AbstractJarMojo.java">
+</file>
+<file name="C:\Users\rhcp_\Desktop\GAMA IBM\Workspaces\FarmaciaJDBC\maven-jar-plugin-3.2.2\src\main\java\org\apache\maven\plugins\jar\JarMojo.java">
+</file>
+<file name="C:\Users\rhcp_\Desktop\GAMA IBM\Workspaces\FarmaciaJDBC\maven-jar-plugin-3.2.2\src\main\java\org\apache\maven\plugins\jar\TestJarMojo.java">
+</file>
+</checkstyle>
