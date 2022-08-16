@@ -23,12 +23,11 @@ public class RegistroDaoJDBC implements RegistroDao{
 		this.conn = conn;
 	}
 
-	//Esse método deve ser automatizado 
-	@Override
-	public void inserirRegistro(String data, int qtdMedicamento, int idMedicamento, String cpf) {
+
+	public void inserirRegistro(String data, int qtdMedicamento, int idMedicamento, String cpf, 
+			String nf, int idPedidoMedicamento) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 		MedicamentoDao mDao = DaoFabrica.criarMedicamentoDao();
-		String nf = Registro.gerarNf();	
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 			try {
@@ -36,8 +35,7 @@ public class RegistroDaoJDBC implements RegistroDao{
 				
 				Double valorTotal = mDao.buscarPorId_CONNECTION_ON(idMedicamento).getValor() * qtdMedicamento;
 				String nome_medicamento = mDao.buscarPorId_CONNECTION_ON(idMedicamento).getNome();
-				//validar se tem em medicamento em estoque se nao exibir msg - FALTA 
-				
+								
 				pst = conn.prepareStatement(
 					"insert into registro"	
 					+ "(data_registro, qtd_medicamento, valor_total, numeroNF, "
@@ -142,6 +140,13 @@ public class RegistroDaoJDBC implements RegistroDao{
 	public List<Registro> buscarPorMedicamento(Long id) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+	@Override
+	public void inserirRegistro(String date, int qtdMedicamento, int idMedicamento, String cpf) {
+		// TODO Auto-generated method stub
+		
 	}
 
 
