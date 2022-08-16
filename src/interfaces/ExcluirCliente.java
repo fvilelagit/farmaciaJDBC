@@ -8,14 +8,12 @@ import javax.swing.border.EmptyBorder;
 
 import dao.ClienteDao;
 import dao.DaoFabrica;
-import dao.impl.ClienteDaoJDBC;
 import entidades.Cliente;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.sql.Connection;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
@@ -71,7 +69,7 @@ public class ExcluirCliente extends JFrame {
 				try {
 					Cliente cli = new Cliente();
 					if(pesq > 0) {
-						ClienteDao c = new DaoFabrica().criarClienteDao();
+						ClienteDao c = DaoFabrica.criarClienteDao();
 						cli = c.buscarPorId(pesq);
 						txtID.setText(Long.toString(pesq));
 						txtNome.setText(cli.getNome());
@@ -166,7 +164,6 @@ public class ExcluirCliente extends JFrame {
 		btnLimpar.setEnabled(false);
 		btnLimpar.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\broom.png"));
 		btnLimpar.addActionListener(new ActionListener() {
-			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 				txtID.setText("");
 				txtNome.setText("");
@@ -190,8 +187,13 @@ public class ExcluirCliente extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int i = JOptionPane.showConfirmDialog(contentPane, "Confirma a exclusão?", "Excluir Cliente", 0, 2);
 				if(i == 0) {
-					ClienteDao c = new DaoFabrica().criarClienteDao();
-					c.deletarPorId(Integer.parseInt(txtID.getText()));
+					ClienteDao c = DaoFabrica.criarClienteDao();
+					try {
+						c.deletarPorId(Integer.parseInt(txtID.getText()));
+						JOptionPane.showMessageDialog(contentPane, "Cliente Excluido!");
+					} catch (Exception es) {
+						JOptionPane.showMessageDialog(contentPane, es.getMessage());
+					}
 				}
 			}
 		});

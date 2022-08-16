@@ -14,14 +14,16 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 import dao.DaoFabrica;
 import dao.MedicamentoDao;
 
 public class CadastroProduto extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtValor;
 	private JTextField txtMarca;
@@ -116,6 +118,9 @@ public class CadastroProduto extends JFrame {
 						try {
 							med.inserirMedicamento(nome, marca, valor, generico, remedio);
 							JOptionPane.showMessageDialog(contentPane, "Produto Cadastrado");
+							txtNome.setText("");
+							txtMarca.setText("");
+							txtValor.setText("");
 						} catch (Exception ex) {
 							JOptionPane.showMessageDialog(contentPane, "Produto não Cadastrado");
 						}

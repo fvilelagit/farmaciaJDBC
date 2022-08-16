@@ -15,6 +15,9 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import dao.ClienteDao;
+import dao.DaoFabrica;
+
 
 public class CadastroCliente extends JFrame {
 
@@ -100,7 +103,7 @@ public class CadastroCliente extends JFrame {
 				int i = JOptionPane.showConfirmDialog(contentPane, "Salvar Informações?", "Confirmar", 0, 3);
 				switch (i) {
 				case 0: {
-					dao.ClienteDao cli = dao.DaoFabrica.criarClienteDao();
+					ClienteDao cli = DaoFabrica.criarClienteDao();
 					CadastroCliente frame = new CadastroCliente();
 					try {
 						String nome = txtNome.getText();
@@ -115,7 +118,7 @@ public class CadastroCliente extends JFrame {
 						txtNasc.setText("");
 						frame.dispose();
 					} catch (Exception message) {
-						JOptionPane.showMessageDialog(contentPane, "Erro ao cadastrar cliente!/n cód. "+ message);
+						JOptionPane.showMessageDialog(contentPane, message.getMessage());
 					}
 					break;
 				}
@@ -154,7 +157,7 @@ public class CadastroCliente extends JFrame {
 		txtTelefone.setColumns(10);
 		
 		txtNasc = new JTextField();
-		txtNasc.setToolTipText("ddddd");
+		txtNasc.setToolTipText("");
 		txtNasc.setBounds(159, 145, 107, 20);
 		contentPane.add(txtNasc);
 		txtNasc.setColumns(10);

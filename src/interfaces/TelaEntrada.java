@@ -46,7 +46,7 @@ public class TelaEntrada extends JFrame {
 				while(z < 50) {
 					try {
 						new Thread();
-						Thread.sleep(1000);
+						Thread.sleep(500);
 						System.out.println(z);
 						z = z + 10;
 					} catch (InterruptedException e1) {

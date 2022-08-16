@@ -7,7 +7,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.sql.Connection;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
@@ -22,7 +21,6 @@ import javax.swing.border.EmptyBorder;
 
 import dao.ClienteDao;
 import dao.DaoFabrica;
-import dao.impl.ClienteDaoJDBC;
 import entidades.Cliente;
 import javax.swing.ImageIcon;
 
@@ -40,7 +38,6 @@ public class EditarCliente extends JFrame {
 	private JTextField txtID;
 	private JButton pesquisar;
 	private JButton limpar;
-	SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
 	DateFormat df = new SimpleDateFormat();
 
 
@@ -70,7 +67,7 @@ public class EditarCliente extends JFrame {
 				try {
 					Cliente cli = new Cliente();
 					if(pesq > 0) {
-						ClienteDao c = new DaoFabrica().criarClienteDao();
+						ClienteDao c = DaoFabrica.criarClienteDao();
 						cli = c.buscarPorId(pesq);
 						txtID.setText(Long.toString(pesq));
 						txtNome.setText(cli.getNome());
@@ -168,7 +165,7 @@ public class EditarCliente extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int i = JOptionPane.showConfirmDialog(contentPane, "Confirma as edições?", "Editar Cliente", 0, 2);
 				if(i == 0) {
-					ClienteDao c = new DaoFabrica().criarClienteDao();
+					ClienteDao c = DaoFabrica.criarClienteDao();
 					c.atualizarCliente(Integer.parseInt(txtID.getText()), txtNome.getText(), txtCPF.getText(), txtTelefone.getText(), txtNasc.getText());
 				}
 			}

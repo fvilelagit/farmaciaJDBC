@@ -7,7 +7,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.sql.Connection;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -42,7 +41,6 @@ public class ListarCliente extends JFrame {
 	private String cpf;
 	private String telefone;
 	private Date dNasc;
-	private Connection conn;
 	private	DateFormat df = new SimpleDateFormat();
 
 	/**
@@ -72,7 +70,7 @@ public class ListarCliente extends JFrame {
 				try {
 					DefaultTableModel model = (DefaultTableModel)table.getModel();
 					Cliente cli = new Cliente();
-					ClienteDao c = new DaoFabrica().criarClienteDao();
+					ClienteDao c = DaoFabrica.criarClienteDao();
 					
 					for(int i = 1; i < 1000; i++) {
 						cli = c.buscarPorId((long) i);
@@ -117,9 +115,11 @@ public class ListarCliente extends JFrame {
 			 * 
 			 */
 			private static final long serialVersionUID = 1L;
+			@SuppressWarnings("rawtypes")
 			Class[] columnTypes = new Class[] {
 				Object.class, Object.class, Object.class, Object.class, Object.class
 			};
+			@SuppressWarnings({ "unchecked", "rawtypes" })
 			public Class getColumnClass(int columnIndex) {
 				return columnTypes[columnIndex];
 			}

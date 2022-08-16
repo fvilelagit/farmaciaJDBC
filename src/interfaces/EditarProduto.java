@@ -18,10 +18,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import dao.ClienteDao;
 import dao.DaoFabrica;
 import dao.MedicamentoDao;
-import entidades.Cliente;
 import entidades.Medicamento;
 
 public class EditarProduto extends JFrame {
@@ -67,7 +65,7 @@ public class EditarProduto extends JFrame {
 				try {
 					Medicamento med = new Medicamento();
 					if(pesq > 0) {
-						MedicamentoDao m = new DaoFabrica().criarMedicamentoDao();
+						MedicamentoDao m = DaoFabrica.criarMedicamentoDao();
 						med = m.buscarPorId(pesq);
 						txtID.setText(Long.toString(pesq));
 						txtNome.setText(med.getNome());
@@ -191,7 +189,7 @@ public class EditarProduto extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int i = JOptionPane.showConfirmDialog(contentPane, "Confirma as edições?", "Editar Produto", 0, 2);
 				if (i == 0) {
-					MedicamentoDao m = new DaoFabrica().criarMedicamentoDao();
+					MedicamentoDao m = DaoFabrica.criarMedicamentoDao();
 					try {
 						m.atualizarValorMedicamento(txtNome.getText(), Double.parseDouble(txtValor.getText()));
 						JOptionPane.showMessageDialog(contentPane, "Produto Alterado!");

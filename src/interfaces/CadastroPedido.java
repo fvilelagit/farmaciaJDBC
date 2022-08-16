@@ -32,6 +32,10 @@ import entidades.Medicamento;
 
 public class CadastroPedido extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtCliente;
 	private JTextField txtCPF;
@@ -45,6 +49,7 @@ public class CadastroPedido extends JFrame {
 	private JTextField txtValor;
 	private JTextField txtQtde;
 	private JButton cli_pesq;
+	@SuppressWarnings("unused")
 	private JButton med_pesq;
 	private JButton add;
 	private JButton salvar;
@@ -85,7 +90,7 @@ public class CadastroPedido extends JFrame {
 				txtData.setText(dtf.format(LocalDateTime.now()));
 				pag = "dinheiro";
 				if(pesq_cli > 0) {
-					ClienteDao c = new DaoFabrica().criarClienteDao();
+					ClienteDao c = DaoFabrica.criarClienteDao();
 					try {
 						cli = c.buscarPorId(pesq_cli);
 						txtCliente.setText(cli.getNome());
@@ -101,7 +106,7 @@ public class CadastroPedido extends JFrame {
 					
 				}
 				if(pesq_pro > 0) {
-					MedicamentoDao m = new DaoFabrica().criarMedicamentoDao();
+					MedicamentoDao m = DaoFabrica.criarMedicamentoDao();
 					try {
 						med = m.buscarPorId((int) pesq_pro);
 						id = Integer.parseInt(Long.toString(med.getId()));
@@ -231,9 +236,11 @@ public class CadastroPedido extends JFrame {
 			 * 
 			 */
 			private static final long serialVersionUID = 1L;
+			@SuppressWarnings("rawtypes")
 			Class[] columnTypes = new Class[] {
 				String.class, String.class, String.class
 			};
+			@SuppressWarnings({ "unchecked", "rawtypes" })
 			public Class getColumnClass(int columnIndex) {
 				return columnTypes[columnIndex];
 			}
@@ -312,6 +319,8 @@ public class CadastroPedido extends JFrame {
 				try {
 					ped.inserirPedido(txtData.getText(), qtde, (int) pesq_pro, txtCPF.getText(), pag);
 					JOptionPane.showMessageDialog(contentPane, "Pedido Efetuado!");
+					pesq_cli = 0;
+					pesq_pro = 0;					
 					CadastroPedido.this.dispose();
 				} catch (Exception ed) {
 					JOptionPane.showMessageDialog(contentPane, ed.getMessage());

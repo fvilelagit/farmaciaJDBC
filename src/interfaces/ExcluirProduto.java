@@ -1,6 +1,5 @@
 package interfaces;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -23,12 +22,15 @@ import javax.swing.JTextField;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
-import java.awt.Window.Type;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class ExcluirProduto extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtID;
 	private JTextField txtNome;
@@ -65,7 +67,7 @@ public class ExcluirProduto extends JFrame {
 				try {
 					Medicamento med = new Medicamento();
 					if(pesq > 0) {
-						MedicamentoDao m = new DaoFabrica().criarMedicamentoDao();
+						MedicamentoDao m = DaoFabrica.criarMedicamentoDao();
 						med = m.buscarPorId(pesq);
 						txtID.setText(Long.toString(pesq));
 						txtNome.setText(med.getNome());
@@ -194,7 +196,7 @@ public class ExcluirProduto extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int i = JOptionPane.showConfirmDialog(contentPane, "Confirma a Exclusão?", "Excluir Produto", 0, 2);
 				if (i == 0) {
-					MedicamentoDao m = new DaoFabrica().criarMedicamentoDao();
+					MedicamentoDao m = DaoFabrica.criarMedicamentoDao();
 					try {
 						m.deletarPorId(Integer.parseInt(txtID.getText()));
 						JOptionPane.showMessageDialog(contentPane, "Produto Excluido!");

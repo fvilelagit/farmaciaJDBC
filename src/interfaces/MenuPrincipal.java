@@ -131,16 +131,13 @@ public class MenuPrincipal extends JFrame {
 		mbDelProduto.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\x-button.png"));
 		mbProdutos.add(mbDelProduto);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Pedidos");
-		mntmNewMenuItem.addActionListener(new ActionListener() {
+		JMenuItem mbPedidos = new JMenuItem("Pedidos");
+		mbPedidos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CadastroPedido tela = new CadastroPedido();
 				tela.setVisible(true);
 			}
 		});
-		mntmNewMenuItem.setBackground(new Color(230, 230, 250));
-		mntmNewMenuItem.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\order.png"));
-		menuBar.add(mntmNewMenuItem);
 		
 		JMenu mbLista = new JMenu("Listas");
 		mbLista.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\to-do-list.png"));
@@ -165,29 +162,20 @@ public class MenuPrincipal extends JFrame {
 		});
 		mbListaProdutos.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\list.png"));
 		mbLista.add(mbListaProdutos);
+		mbPedidos.setBackground(new Color(230, 230, 250));
+		mbPedidos.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\order.png"));
+		menuBar.add(mbPedidos);
 		
-		JMenuItem mbListaPedidos = new JMenuItem("Listar Pedidos");
-		mbListaPedidos.addActionListener(new ActionListener() {
+		JMenuItem mbEstoque = new JMenuItem("Estoque");
+		mbEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//ped.ListarPedidos();
+				ListarEstoque tela = new ListarEstoque();
+				tela.setVisible(true);
 			}
 		});
-		mbListaPedidos.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\list.png"));
-		mbLista.add(mbListaPedidos);
-		
-		JMenu mbEstoque = new JMenu("Estoque");
-		mbEstoque.setBackground(Color.LIGHT_GRAY);
 		mbEstoque.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\shelf.png"));
+		mbEstoque.setBackground(new Color(230, 230, 250));
 		menuBar.add(mbEstoque);
-		
-		JMenuItem mbConsultEstoque = new JMenuItem("Consultar Estoque");
-		mbConsultEstoque.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//est.ConsultaEstoque();
-			}
-		});
-		mbConsultEstoque.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\list.png"));
-		mbEstoque.add(mbConsultEstoque);
 		
 		JMenuItem mbSair = new JMenuItem("Sair");
 		mbSair.addActionListener(new ActionListener() {
@@ -196,10 +184,16 @@ public class MenuPrincipal extends JFrame {
 			}
 		});
 		
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Histórico");
-		mntmNewMenuItem_1.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\history.png"));
-		mntmNewMenuItem_1.setBackground(new Color(230, 230, 250));
-		menuBar.add(mntmNewMenuItem_1);
+		JMenuItem mbHistorico = new JMenuItem("Histórico");
+		mbHistorico.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				HistoricoTransacao tela = new HistoricoTransacao();
+				tela.setVisible(true);
+			}
+		});
+		mbHistorico.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\history.png"));
+		mbHistorico.setBackground(new Color(230, 230, 250));
+		menuBar.add(mbHistorico);
 		mbSair.setBackground(new Color(230, 230, 250));
 		mbSair.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\log-out.png"));
 		menuBar.add(mbSair);
@@ -207,8 +201,13 @@ public class MenuPrincipal extends JFrame {
 		JLabel Imagem = new JLabel("");
 		Imagem.setForeground(new Color(240, 240, 240));
 		Imagem.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\medicine - Copia.png"));
-		Imagem.setBounds(206, 115, 518, 499);
+		Imagem.setBounds(397, 219, 518, 499);
 		contentPane.add(Imagem);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\logo.png"));
+		lblNewLabel.setBounds(10, 409, 277, 309);
+		contentPane.add(lblNewLabel);
 		
 		
 	}

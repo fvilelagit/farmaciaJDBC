@@ -11,6 +11,7 @@ import java.util.Date;
 import dao.LogMedicamentoDao;
 import db.DB;
 import db.DbException;
+import interfaces.ListarEstoque;
 
 public class LogMedicamentoDaoJDBC implements LogMedicamentoDao{
 
@@ -51,7 +52,9 @@ public class LogMedicamentoDaoJDBC implements LogMedicamentoDao{
 					}else {
 						 data_registro = "Sem Registro";
 					}
-		
+					
+					ListarEstoque.model.addRow(new String[] {nome, marca, "R$ " + valor, saldo_estoque, data_registro});
+					
 					System.out.println("Saldo em Estoque : " + saldo_estoque);
 					System.out.println("Id : " + id_medicamento);
 					System.out.println("Nome : " + nome);

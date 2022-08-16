@@ -20,11 +20,14 @@ import javax.swing.table.DefaultTableModel;
 
 import dao.DaoFabrica;
 import dao.MedicamentoDao;
-import db.DB;
 import entidades.Medicamento;
 
 public class ListarProduto extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTable table;
 	public int pesq;
@@ -61,7 +64,7 @@ public class ListarProduto extends JFrame {
 				try {
 					DefaultTableModel model = (DefaultTableModel)table.getModel();
 					Medicamento med = new Medicamento();
-					MedicamentoDao m = new DaoFabrica().criarMedicamentoDao();
+					MedicamentoDao m = DaoFabrica.criarMedicamentoDao();
 					
 					for(int i = 1; i < 1000; i++) {
 						med = m.buscarPorId(i);
@@ -117,9 +120,11 @@ public class ListarProduto extends JFrame {
 			 * 
 			 */
 			private static final long serialVersionUID = 1L;
+			@SuppressWarnings("rawtypes")
 			Class[] columnTypes = new Class[] {
 				Integer.class, String.class, String.class, String.class, Short.class, Short.class
 			};
+			@SuppressWarnings({ "unchecked", "rawtypes" })
 			public Class getColumnClass(int columnIndex) {
 				return columnTypes[columnIndex];
 			}
@@ -145,8 +150,10 @@ public class ListarProduto extends JFrame {
 					if (op == 1) {
 						ExcluirProduto tela = new ExcluirProduto(pesq);
 						tela.setVisible(true);
-					} else if(op == 3) {
-						interfaces.CadastroPedido.pesq_pro = pesq;
+					} else if (op == 3) {
+						CadastroPedido.pesq_pro = pesq;
+					} else if (op == 4){
+						CadastroEstoque.pesq_pro = pesq;
 					} else {
 						EditarProduto tela = new EditarProduto(pesq);
 						tela.setVisible(true);
