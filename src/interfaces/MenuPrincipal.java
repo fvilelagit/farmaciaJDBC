@@ -47,19 +47,21 @@ public class MenuPrincipal extends JFrame {
 		setTitle("Loja Tudo de Bom");
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(10, 10, 1024, 768);
+		setBounds(10, 10, 947, 768);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(230, 230, 250));
 		contentPane.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBorderPainted(false);
-		menuBar.setBackground(new Color(240, 240, 240));
-		menuBar.setBounds(10, 11, 648, 67);
+		menuBar.setBackground(new Color(230, 230, 250));
+		menuBar.setBounds(15, 11, 900, 67);
 		contentPane.add(menuBar);
 		
 		JMenu mbClientes = new JMenu("Clientes");
+		mbClientes.setBackground(new Color(230, 230, 250));
 		mbClientes.setHorizontalAlignment(SwingConstants.TRAILING);
 		mbClientes.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\man.png"));
 		menuBar.add(mbClientes);
@@ -78,7 +80,7 @@ public class MenuPrincipal extends JFrame {
 		JMenuItem mbEditCliente = new JMenuItem("Editar Cliente");
 		mbEditCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				EditarCliente tela = new EditarCliente();
+				EditarCliente tela = new EditarCliente((long) 0);
 				tela.setVisible(true);
 			}
 		});
@@ -88,7 +90,7 @@ public class MenuPrincipal extends JFrame {
 		JMenuItem mbDelCliente = new JMenuItem("Excluir Cliente");
 		mbDelCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ExcluirCliente tela = new ExcluirCliente();
+				ExcluirCliente tela = new ExcluirCliente((long) 0);
 				tela.setVisible(true);
 			}
 		});
@@ -102,7 +104,8 @@ public class MenuPrincipal extends JFrame {
 		JMenuItem mbNewProduto = new JMenuItem("Novo Produto");
 		mbNewProduto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//pro.CadastrarProdutos();
+				CadastroProduto tela = new CadastroProduto();
+				tela.setVisible(true);
 			}
 		});
 		mbNewProduto.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\add.png"));
@@ -111,7 +114,8 @@ public class MenuPrincipal extends JFrame {
 		JMenuItem mbEditProduto = new JMenuItem("Editar Produto");
 		mbEditProduto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//pro.EditarProdutos();
+				EditarProduto tela = new EditarProduto(0);
+				tela.setVisible(true);
 			}
 		});
 		mbEditProduto.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\pencil.png"));
@@ -120,42 +124,23 @@ public class MenuPrincipal extends JFrame {
 		JMenuItem mbDelProduto = new JMenuItem("Excluir Produto");
 		mbDelProduto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//pro.ExcluirProdutos();
+				ExcluirProduto tela = new ExcluirProduto(0);
+				tela.setVisible(true);
 			}
 		});
 		mbDelProduto.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\x-button.png"));
 		mbProdutos.add(mbDelProduto);
 		
-		JMenu mbPedidos = new JMenu("Pedidos");
-		mbPedidos.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\order.png"));
-		menuBar.add(mbPedidos);
-		
-		JMenuItem mbNewPedido = new JMenuItem("Novo Pedido");
-		mbNewPedido.addActionListener(new ActionListener() {
+		JMenuItem mntmNewMenuItem = new JMenuItem("Pedidos");
+		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//ped.CadastrarPedidos();
+				CadastroPedido tela = new CadastroPedido();
+				tela.setVisible(true);
 			}
 		});
-		mbNewPedido.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\add.png"));
-		mbPedidos.add(mbNewPedido);
-		
-		JMenuItem mbEditPedido = new JMenuItem("Editar Pedido");
-		mbEditPedido.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//ped.EditarPedidos();
-			}
-		});
-		mbEditPedido.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\pencil.png"));
-		mbPedidos.add(mbEditPedido);
-		
-		JMenuItem mbDelPedido = new JMenuItem("Excluir Pedido");
-		mbDelPedido.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//ped.ExcluirPedidos();
-			}
-		});
-		mbDelPedido.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\x-button.png"));
-		mbPedidos.add(mbDelPedido);
+		mntmNewMenuItem.setBackground(new Color(230, 230, 250));
+		mntmNewMenuItem.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\order.png"));
+		menuBar.add(mntmNewMenuItem);
 		
 		JMenu mbLista = new JMenu("Listas");
 		mbLista.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\to-do-list.png"));
@@ -164,7 +149,8 @@ public class MenuPrincipal extends JFrame {
 		JMenuItem mbListaClientes = new JMenuItem("Listar Clientes");
 		mbListaClientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//cli.ListarClientes();
+				ListarCliente tela = new ListarCliente(0);
+				tela.setVisible(true);
 			}
 		});
 		mbListaClientes.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\list.png"));
@@ -173,7 +159,8 @@ public class MenuPrincipal extends JFrame {
 		JMenuItem mbListaProdutos = new JMenuItem("Listar Produtos ");
 		mbListaProdutos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//pro.ListarProdutos();
+				ListarProduto tela = new ListarProduto(0);
+				tela.setVisible(true);
 			}
 		});
 		mbListaProdutos.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\list.png"));
@@ -202,10 +189,25 @@ public class MenuPrincipal extends JFrame {
 		mbConsultEstoque.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\list.png"));
 		mbEstoque.add(mbConsultEstoque);
 		
+		JMenuItem mbSair = new JMenuItem("Sair");
+		mbSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MenuPrincipal.this.dispose();
+			}
+		});
+		
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Histórico");
+		mntmNewMenuItem_1.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\history.png"));
+		mntmNewMenuItem_1.setBackground(new Color(230, 230, 250));
+		menuBar.add(mntmNewMenuItem_1);
+		mbSair.setBackground(new Color(230, 230, 250));
+		mbSair.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\log-out.png"));
+		menuBar.add(mbSair);
+		
 		JLabel Imagem = new JLabel("");
 		Imagem.setForeground(new Color(240, 240, 240));
 		Imagem.setIcon(new ImageIcon("C:\\Users\\urusi\\Projetos\\farmaciaJDBC\\img\\medicine - Copia.png"));
-		Imagem.setBounds(490, 230, 518, 499);
+		Imagem.setBounds(206, 115, 518, 499);
 		contentPane.add(Imagem);
 		
 		

@@ -13,6 +13,8 @@ public interface MedicamentoDao {
 		void deletarPorId(int id);
 		Medicamento buscarPorId(int id);
 		
+		Medicamento buscarPorNome(String nome);
+		
 		
 		List<Medicamento> listarMedicamentos();
 		Medicamento buscarPorId_CONNECTION_ON(int id);
