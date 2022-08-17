@@ -6,7 +6,7 @@
 ## Conteúdo:
 <h4>Aplicação completa e executável direto de sistema operacional de cadastro de clientes, medicamentos, criação de pedidos, logs de registros e manipulação de estoque 
 com a implementação de CRUD de acordo à usuabilidade de cada classe. 
-Aplicação toda gerada em JDBC e Javax com intúito de estudo para domínio das funções lógicas de integração com o banco de dados com o Data Access Object. </h4>
+Aplicação toda gerada em JDBC e Swing com intúito de estudo para domínio das funções lógicas de integração com o banco de dados com o Data Access Object. </h4>
 
 
 ##<h4>Tecnologias utilizadas
