@@ -30,14 +30,19 @@ Aplicação toda gerada em JDBC e Javax com intúito de estudo para domínio das
 
 <p> <i>Desenvolvimento dos métodos CRUD e lógica das regras de négocio em DAO. Estruturação das propriedades de conexão com o Banco de Dados; MER, DER e esquemas relacionais no MySQL</i> realizados por :<b>Fábio Bonfim Vilela.</> <br/><br/>
 
-<i>Desenvolvimento do design da aplicação, lógica de funcionamento relacional, aplicação e adaptação dos fluxos de execução de interface. Testes individuais de funções  e distribuição das mesmas no layout</i> realizadas por : <b>Rafael Souza</b>
+<i>Desenvolvimento do design da aplicação, lógica de funcionamento relacional, aplicação e adaptação dos fluxos de execução de interface. Testes individuais de funções  e distribuição das mesmas no layout</i> realizadas por : <b>Rafael Rodrigues de Souza</b>
 
 
-<br/><br/><br/>
+<br/>
 
+<hr>
 
- 
+<p>
+   Modelo DER: (https://user-images.githubusercontent.com/66737556/185016515-d7747f18-aab6-42a9-82b6-be239e9848cc.jpg) </p>
+<p>
+   Modelo MER: (https://github.com/fvilelagit/farmaciaJDBC/files/9355722/Farmacia.zip) </p>
 
+<br/><br/>
 
 
 
