@@ -40,7 +40,7 @@ Aplicação toda gerada em JDBC e Javax com intúito de estudo para domínio das
 <p>
    Modelo DER: (https://user-images.githubusercontent.com/66737556/185016515-d7747f18-aab6-42a9-82b6-be239e9848cc.jpg) </p>
 <p>
-   Modelo MER: (https://github.com/fvilelagit/farmaciaJDBC/files/9355722/Farmacia.zip) </p>
+   Script SQL: (https://github.com/fvilelagit/farmaciaJDBC/files/9355722/Farmacia.zip) </p>
 
 <br/><br/>
 
