@@ -30,7 +30,7 @@ Aplicação toda gerada em JDBC e Javax com intúito de estudo para domínio das
 
 <p> <i>Desenvolvimento dos métodos CRUD e lógica das regras de négocio em DAO. Estruturação das propriedades de conexão com o Banco de Dados; MER, DER e esquemas relacionais no MySQL</i> realizados por :<b>Fábio Bonfim Vilela.</> <br/><br/>
 
-<i>Desenvolvimento do design da aplicação, lógica de funcionamento relacional, aplicação e adaptação dos fluxos de execução de interface. Testes individuais de funções  e distribuição das mesmas no layout</i> realizadas por : <b>Rafael Souza</b>
+<i>Desenvolvimento do design da aplicação, lógica de funcionamento relacional, aplicação e adaptação dos fluxos de execução de interface. Testes individuais de funções  e distribuição das mesmas no layout</i> realizadas por : <b>Rafael Rodrigue de Souza</b>
 
 
 <br/>
