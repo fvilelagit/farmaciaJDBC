@@ -134,7 +134,6 @@ public class CadastroProduto extends JFrame {
 		btnCadastrar.setBounds(186, 198, 101, 23);
 		contentPane.add(btnCadastrar);
 		
-		
 		JCheckBox cbGenerico = new JCheckBox("Genérico");
 		cb_Generico = cbGenerico;
 		cbGenerico.setEnabled(false);
@@ -142,6 +141,16 @@ public class CadastroProduto extends JFrame {
 		contentPane.add(cbGenerico);
 		
 		JCheckBox cbRemedio = new JCheckBox("Remédio");
+		cbRemedio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(cb_Remedio.isSelected()) {
+					cb_Generico.setEnabled(true);
+				} else {
+					cb_Generico.setSelected(false);
+					cb_Generico.setEnabled(false);
+				}
+			}
+		});
 		cb_Remedio = cbRemedio;
 		cbRemedio.setBounds(140, 153, 97, 23);
 		contentPane.add(cbRemedio);

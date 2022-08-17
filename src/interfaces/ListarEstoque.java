@@ -21,6 +21,7 @@ import javax.swing.table.DefaultTableModel;
 
 import dao.DaoFabrica;
 import dao.LogMedicamentoDao;
+import javax.swing.ListSelectionModel;
 
 public class ListarEstoque extends JFrame {
 
@@ -79,6 +80,8 @@ public class ListarEstoque extends JFrame {
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
+		table.setShowVerticalLines(false);
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
 			},

@@ -116,7 +116,6 @@ public class CadastroCliente extends JFrame {
 						txtCPF.setText("");
 						txtTelefone.setText("");
 						txtNasc.setText("");
-						frame.dispose();
 					} catch (Exception message) {
 						JOptionPane.showMessageDialog(contentPane, message.getMessage());
 					}

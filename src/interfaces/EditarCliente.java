@@ -166,7 +166,12 @@ public class EditarCliente extends JFrame {
 				int i = JOptionPane.showConfirmDialog(contentPane, "Confirma as edições?", "Editar Cliente", 0, 2);
 				if(i == 0) {
 					ClienteDao c = DaoFabrica.criarClienteDao();
-					c.atualizarCliente(Integer.parseInt(txtID.getText()), txtNome.getText(), txtCPF.getText(), txtTelefone.getText(), txtNasc.getText());
+					try {
+						c.atualizarCliente(Integer.parseInt(txtID.getText()), txtNome.getText(), txtCPF.getText(), txtTelefone.getText(), txtNasc.getText());
+						JOptionPane.showMessageDialog(contentPane, "Cliente Alterado");
+					} catch (Exception cs) {
+						JOptionPane.showMessageDialog(contentPane, cs.getMessage());
+					}
 				}
 			}
 		});

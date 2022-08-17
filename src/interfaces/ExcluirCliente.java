@@ -191,6 +191,18 @@ public class ExcluirCliente extends JFrame {
 					try {
 						c.deletarPorId(Integer.parseInt(txtID.getText()));
 						JOptionPane.showMessageDialog(contentPane, "Cliente Excluido!");
+						txtID.setText("");
+						txtNome.setText("");
+						txtCPF.setText("");
+						txtTelefone.setText("");
+						txtNasc.setText("");
+						
+						txtNome.setEnabled(false);
+						txtCPF.setEnabled(false);
+						txtTelefone.setEnabled(false);
+						txtNasc.setEnabled(false);
+						pesquisar.setEnabled(true);
+						limpar.setEnabled(false);
 					} catch (Exception es) {
 						JOptionPane.showMessageDialog(contentPane, es.getMessage());
 					}
