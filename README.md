@@ -19,7 +19,7 @@ Aplicação toda gerada em JDBC e Javax com intúito de estudo para domínio das
 
 <i><b>A execução de um POST endpoint:</i></b>
 <p> 
- A classe ClienteDaoJDBC instanciada por método de DaoFabrica, carrega as propriedades de conexão (Connection) com o banco de dados. 
+ A classe ClienteDaoJDBC instanciada por método pela entidade DaoFabrica, carrega as propriedades de conexão (Connection) com o banco de dados. 
  Assim executa o método (POST) inserirCliente(); que recebe quatro variáveis inseridas em .textfields(); pelo usuário na interface.
  Então um objeto PreparedStatement recebe a query de inserção em MySQL em junção com as variáveis de entrada.
  Tendo esse mesmo objeto PreparedStatement sendo executado com .executeUpdate(); com sucesso retorna a linha afetada que através do método RETURN_GENERATED_KEYS torna o id que foi inserido no banco de dados retornável através de um ResultSet recebendo este PreparedStatement com o método getGenaratedKeys(); <p>
